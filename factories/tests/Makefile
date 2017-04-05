@@ -28,5 +28,5 @@ clean:
 ${OBJDIR}/%_tests.o: %_tests.cc ${OBJDIR}
 	$(GCC) ${CXXFLAGS} ${TESTCXXFLAGS} -o $@ -c $<
 
-unittests: ${TESTS} ${UUTS} ${GTESTLIB} ${GMOCKLIB}
-	$(GCC) ${CXXFLAGS} ${TESTCXXFLAGS} -o $@ -lpthread $^ ../../files/obj/*.o ../../headers/obj/*.o ../../serialization/obj/*.o 
+unittests: ${TESTS} 
+	$(GCC) ${CXXFLAGS} ${TESTCXXFLAGS} -o $@ -lpthread $^ ${UUTS} ${GTESTLIB} ${GMOCKLIB} ../../files/obj/*.o ../../headers/obj/*.o ../../serialization/obj/*.o 
