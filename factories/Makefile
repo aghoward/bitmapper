@@ -2,7 +2,7 @@ GCC ?=g++
 CXXFLAGS ?=--std=c++17 -I../
 OBJDIR=./obj
 
-HEADERS=${OBJDIR}/colortableheaderfactory.o ${OBJDIR}/bitmapcoreheaderfactory.o ${OBJDIR}/bitmapheaderfactory.o ${OBJDIR}/bitmapfactory.o
+HEADERS=${OBJDIR}/colortableheaderfactory.o ${OBJDIR}/bitmapcoreheaderfactory.o ${OBJDIR}/bitmapheaderfactory.o ${OBJDIR}/bitmapfactory.o ${OBJDIR}/elfheaderfactory.o ${OBJDIR}/sectionheaderfactory.o ${OBJDIR}/programheaderfactory.o
 
 all: ${OBJDIR} ${HEADERS}
 

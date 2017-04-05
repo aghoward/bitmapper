@@ -2,7 +2,7 @@ GCC=g++
 CXXFLAGS=--std=c++17 -I../
 OBJDIR=./obj
 
-FILES=${OBJDIR}/bitmap.o
+FILES=${OBJDIR}/bitmap.o ${OBJDIR}/binaryfile.o
 
 all: ${OBJDIR} ${FILES}
 
