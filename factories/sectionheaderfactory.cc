@@ -21,7 +21,7 @@ string getName(fstream &fd, shared_ptr<SectionHeader> strtab, unsigned long offs
     return readString(fd);
 }
 
-Result<vector<shared_ptr<SectionHeader>>, ParseFailure> SectionHeaderFactory::Create(fstream &fd, shared_ptr<ElfHeader> elf) {
+Result<vector<shared_ptr<SectionHeader>>, FileError> SectionHeaderFactory::Create(fstream &fd, shared_ptr<ElfHeader> elf) {
     auto headers = vector<shared_ptr<SectionHeader>>();
 
     fd.seekg(elf->section_offset);
@@ -46,7 +46,7 @@ Result<vector<shared_ptr<SectionHeader>>, ParseFailure> SectionHeaderFactory::Cr
             return ResultFactory::CreateFailure<vector<shared_ptr<SectionHeader>>>(FileReadError);
     }
 
-    return ResultFactory::CreateSuccess<vector<shared_ptr<SectionHeader>>, ParseFailure>(headers);
+    return ResultFactory::CreateSuccess<vector<shared_ptr<SectionHeader>>, FileError>(headers);
 }
 
 bool SectionHeaderFactory::isFileOk(fstream &fd) {

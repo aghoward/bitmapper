@@ -19,5 +19,5 @@ class SectionHeaderFactory {
         static string getContents(fstream &fd, shared_ptr<SectionHeader> header);
 
     public:
-        static Result<vector<shared_ptr<SectionHeader>>, ParseFailure> Create(fstream &fd, shared_ptr<ElfHeader> elf);
+        static Result<vector<shared_ptr<SectionHeader>>, FileError> Create(fstream &fd, shared_ptr<ElfHeader> elf);
 };

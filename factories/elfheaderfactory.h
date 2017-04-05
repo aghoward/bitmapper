@@ -21,5 +21,5 @@ class ElfHeaderFactory {
         static unsigned long getWord(fstream &fd, BITNESS bitness, ENDIANESS endianess);
 
     public:
-        static Result<shared_ptr<ElfHeader>, ParseFailure> Create(fstream &fd);
+        static Result<shared_ptr<ElfHeader>, FileError> Create(fstream &fd);
 };

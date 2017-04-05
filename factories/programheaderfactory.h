@@ -18,5 +18,5 @@ class ProgramHeaderFactory {
         static shared_ptr<ProgramHeader> deserialize64(fstream &fd, ENDIANESS endianess);
 
     public:
-        static Result<vector<shared_ptr<ProgramHeader>>, ParseFailure> Create(fstream &fd, shared_ptr<ElfHeader> elf);
+        static Result<vector<shared_ptr<ProgramHeader>>, FileError> Create(fstream &fd, shared_ptr<ElfHeader> elf);
 };

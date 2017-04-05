@@ -12,7 +12,7 @@
 using namespace std;
 using namespace utils;
 
-Result<vector<shared_ptr<ProgramHeader>>, ParseFailure> ProgramHeaderFactory::Create(fstream &fd, shared_ptr<ElfHeader> elf) {
+Result<vector<shared_ptr<ProgramHeader>>, FileError> ProgramHeaderFactory::Create(fstream &fd, shared_ptr<ElfHeader> elf) {
     auto headers = vector<shared_ptr<ProgramHeader>>();
 
     for (auto i = 0; i < elf->program_entry_count; i++) {
@@ -25,7 +25,7 @@ Result<vector<shared_ptr<ProgramHeader>>, ParseFailure> ProgramHeaderFactory::Cr
         headers.push_back(header);
     }
 
-    return ResultFactory::CreateSuccess<vector<shared_ptr<ProgramHeader>>, ParseFailure>(headers);
+    return ResultFactory::CreateSuccess<vector<shared_ptr<ProgramHeader>>, FileError>(headers);
 }
 
 shared_ptr<ProgramHeader> ProgramHeaderFactory::deserialize32(fstream &fd, ENDIANESS endianess) {

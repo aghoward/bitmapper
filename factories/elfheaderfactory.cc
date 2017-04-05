@@ -11,7 +11,7 @@
 
 using namespace utils;
 
-Result<shared_ptr<ElfHeader>, ParseFailure> ElfHeaderFactory::Create(fstream& fd) {
+Result<shared_ptr<ElfHeader>, FileError> ElfHeaderFactory::Create(fstream& fd) {
     fd.seekg(0, ios_base::beg);
     if (fd.fail() || fd.bad())
         return ResultFactory::CreateFailure<shared_ptr<ElfHeader>>(FileReadError);
@@ -40,7 +40,7 @@ Result<shared_ptr<ElfHeader>, ParseFailure> ElfHeaderFactory::Create(fstream& fd
     elf->section_entry_count = getBytes(fd, 2, elf->endianess);
     elf->section_name_index = getBytes(fd, 2, elf->endianess);
 
-    return ResultFactory::CreateSuccess<shared_ptr<ElfHeader>, ParseFailure>(elf);
+    return ResultFactory::CreateSuccess<shared_ptr<ElfHeader>, FileError>(elf);
 }
 
 
