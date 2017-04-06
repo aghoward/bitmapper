@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+#include "ibitmapfactory.h"
 #include "ibitmapheaderfactory.h"
 #include "ibitmapcoreheaderfactory.h"
 #include "icolortableheaderfactory.h"
@@ -14,7 +15,7 @@
 
 using namespace std;
 
-class BitmapFactory {
+class BitmapFactory : public IBitmapFactory {
     private:
         shared_ptr<IBitmapHeaderFactory> _bitmapHeaderFactory;
         shared_ptr<IBitmapCoreHeaderFactory> _bitmapCoreHeaderFactory;
