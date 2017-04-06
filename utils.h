@@ -29,6 +29,17 @@ namespace utils {
         return string(s.str());
     }
 
+    template<typename T>
+    vector<T> where(vector<T> & input, function<bool(T)> predicate) {
+        auto ret = vector<T>();
+        for (auto it : input) {
+            if (predicate(it))
+                ret.push_back(it);
+        }
+
+        return ret;
+    }
+
     unsigned long getBytes(fstream &fd, int num, ENDIANESS endianess);
     string readString(fstream &fd);
 }
